@@ -1,15 +1,20 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
+
+const MyLink = (props: PropsWithChildren<{ to: string }>) => {
+  return (
+    <div>
+      <Link to={props.to}>{props.children}</Link>
+    </div>
+  );
+};
 
 export const IndexLinks = () => {
   return (
     <div>
-      <div>
-        <Link to={"/app"}>app</Link>
-      </div>
-      <div>
-        <Link to={"/hello"}>hello</Link>
-      </div>
+      <MyLink to="/app">app</MyLink>
+      <MyLink to="/hello">hello</MyLink>
+      <MyLink to="/foo">foo</MyLink>
     </div>
   );
 };
